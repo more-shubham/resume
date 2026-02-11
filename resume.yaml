@@ -1,0 +1,86 @@
+contact:
+  name: Shubham More
+  email: mores9785@gmail.com
+  phone: "+91 9325719101"
+  linkedin: linkedin.com/in/shubham-more # Update if different
+  github: github.com/shubham-more # Update if different
+  location: Pune, Maharashtra
+
+summary: >-
+  Software Engineer with 4+ years of experience building scalable web
+  applications using the MERN and PERN stacks. Specializes in designing
+  multi-tenant SaaS architectures, integrating Generative AI workflows with
+  LangChain, and optimizing backend performance with Golang and event-driven
+  AWS services. Experienced in serving 50K+ daily active users across
+  distributed systems.
+
+skills:
+  - category: Frontend
+    items: [React, Next.js (SSR/ISR), Redux, TypeScript, Tailwind CSS, HTML5/CSS3, Vue.js]
+  - category: Backend
+    items: [Node.js, Express, Golang (Goroutines), REST APIs, GraphQL, Socket.io, Python]
+  - category: AI & LLMs
+    items: [LangChain, RAG Pipelines, Prompt Engineering, Vector Databases, LLMs]
+  - category: Databases & Cache
+    items: [PostgreSQL, MongoDB, Mongoose, Redis (Pub/Sub)]
+  - category: Cloud & DevOps
+    items: [AWS (Lambda, S3, SQS), Docker, CI/CD Pipelines, Git, Linux]
+
+experience:
+  - company: SR Analytics
+    role: Full Stack Developer
+    location: Pune, India
+    start_date: Jan 2024
+    end_date: Present
+    bullets:
+      - Engineered a multi-tenant analytics SaaS (Beast Insights) using Node.js and PostgreSQL, implementing Row-Level Security (RLS) to ensure 100% data isolation for 10+ corporate clients
+      - Designed AI tool-use architectures with LangChain, enabling LLMs to execute controlled REST API calls that automated 60% of repetitive data workflows
+      - Led the migration of 3 legacy applications to Next.js with SSR and ISR, improving Lighthouse performance scores by 35% and boosting organic search traffic
+      - Built dynamic filter hierarchies and real-time notification systems using React, Redux, and WebSocket connections for sub-second live dashboard updates
+
+  - company: Irys India
+    role: Full Stack Engineer
+    location: Pune, India
+    start_date: Feb 2022
+    end_date: Dec 2023
+    bullets:
+      - Scaled MEVN stack applications to support 50,000+ daily active users by implementing Redis caching, database indexing, and horizontal load balancing
+      - Re-architected performance-critical backend services in Golang with concurrent goroutines, reducing P95 API latency from 800ms to 200ms on high-load endpoints
+      - Designed and deployed the organization's first RAG pipeline using LangChain and vector databases, reducing manual document lookup time by 70%
+      - Architected a multi-tenant Inventory Management SaaS (Tiara Hub) on the MERN stack with strict data isolation, JWT authentication, and automated RFID label printing via ZPL integration
+      - Optimized infrastructure costs by 40% through migrating background tasks to event-driven AWS Lambda functions triggered by SQS message queues
+
+education:
+  - degree: Full Stack Development Fellowship
+    university: Crio.io
+    start_date: 2025
+    end_date: Present
+  - degree: Diploma in Computer Technology
+    university: MSBTE, Maharashtra
+    start_date: 2019
+    end_date: 2022
+
+projects:
+  - name: LZ-Compress CLI
+    tech_stack: [Golang, Huffman Coding, Goroutines, Concurrent Programming]
+    bullets:
+      - Engineered a lossless file compression engine using Huffman tree encoding, achieving 40-65% size reduction across 10K+ test files with zero data loss
+      - Implemented producer-consumer pattern with goroutines and buffered channels, processing 500MB files in parallel with 3x throughput improvement over sequential compression
+
+  - name: VectorFlow Search Engine
+    tech_stack: [Python, Go, NumPy, HNSW, Cosine Similarity, Redis]
+    bullets:
+      - Architected an in-memory vector database supporting 100K+ embeddings with HNSW graph indexing, delivering sub-50ms query latency for Top-K similarity searches
+      - Optimized nearest-neighbor retrieval using Min-Heap priority queues and cosine distance calculations, powering RAG pipelines with 95% relevance accuracy
+
+  - name: RateGuard API Gateway
+    tech_stack: [Node.js, Redis, Express, Token Bucket Algorithm, TypeScript]
+    bullets:
+      - Built a distributed rate limiter middleware using Token Bucket algorithm with Redis-backed atomic counters, protecting APIs from 99.8% of abusive traffic patterns
+      - Designed sliding window rate tracking with O(1) HashMap lookups and mutex-protected state synchronization, handling 10K+ requests/second per endpoint
+
+  - name: AnomalyStream Analytics
+    tech_stack: [Python, Golang, Kafka, DFS/BFS, Trie, PostgreSQL]
+    bullets:
+      - Developed real-time transaction fraud detection processing 15K+ events/second using sliding window moving averages and Z-score anomaly thresholds
+      - Implemented graph cycle detection with DFS traversal to identify circular payment schemes and Trie-based autocomplete for instant merchant search across 2M+ records
