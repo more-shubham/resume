@@ -144,6 +144,10 @@ def validate_contact_info(contact_dict: dict) -> list[str]:
     if github and not _is_valid_url(github):
         errors.append(f"Invalid URL format for github: '{github}'")
 
+    leetcode = contact_dict.get("leetcode")
+    if leetcode and not _is_valid_url(leetcode):
+        errors.append(f"Invalid URL format for leetcode: '{leetcode}'")
+
     return errors
 
 

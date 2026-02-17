@@ -69,6 +69,7 @@ def _build_contact(contact_dict: dict) -> ContactInfo:
         phone=contact_dict.get("phone"),
         linkedin=contact_dict.get("linkedin"),
         github=contact_dict.get("github"),
+        leetcode=contact_dict.get("leetcode"),
         location=contact_dict.get("location"),
     )
 

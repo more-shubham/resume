@@ -136,6 +136,8 @@ def _build_contact_header(contact: ContactInfo) -> list:
         contact_parts.append(contact.linkedin)
     if contact.github:
         contact_parts.append(contact.github)
+    if contact.leetcode:
+        contact_parts.append(contact.leetcode)
     if contact.location:
         contact_parts.append(contact.location)
 
