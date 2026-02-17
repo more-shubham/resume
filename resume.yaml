@@ -2,8 +2,9 @@ contact:
   name: Shubham More
   email: mores9785@gmail.com
   phone: "+91 9325719101"
-  linkedin: linkedin.com/in/shubham-more # Update if different
-  github: github.com/shubham-more # Update if different
+  linkedin: linkedin.com/in/shubhammore-dev/
+  github: github.com/more-shubham/
+  # leetcode: leetcode.com/u/8hYWWLnhrp/
   location: Pune, Maharashtra
 
 summary: >-
@@ -16,7 +17,7 @@ summary: >-
 
 skills:
   - category: Frontend
-    items: [React, Next.js (SSR/ISR), Redux, TypeScript, Tailwind CSS, HTML5/CSS3, Vue.js]
+    items: [React, React Native, Next.js (SSR/ISR), Redux, TypeScript, Tailwind CSS, HTML5/CSS3, Vue.js]
   - category: Backend
     items: [Node.js, Express, Golang (Goroutines), REST APIs, GraphQL, Socket.io, Python]
   - category: AI & LLMs
@@ -30,8 +31,8 @@ experience:
   - company: SR Analytics
     role: Full Stack Developer
     location: Pune, India
-    start_date: Jan 2024
-    end_date: Present
+    start_date: Apr 2025
+    end_date: Mar 2026
     bullets:
       - Engineered a multi-tenant analytics SaaS (Beast Insights) using Node.js and PostgreSQL, implementing Row-Level Security (RLS) to ensure 100% data isolation for 10+ corporate clients
       - Designed AI tool-use architectures with LangChain, enabling LLMs to execute controlled REST API calls that automated 60% of repetitive data workflows
@@ -42,7 +43,7 @@ experience:
     role: Full Stack Engineer
     location: Pune, India
     start_date: Feb 2022
-    end_date: Dec 2023
+    end_date: Apr 2025
     bullets:
       - Scaled MEVN stack applications to support 50,000+ daily active users by implementing Redis caching, database indexing, and horizontal load balancing
       - Re-architected performance-critical backend services in Golang with concurrent goroutines, reducing P95 API latency from 800ms to 200ms on high-load endpoints
