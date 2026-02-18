@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import os
 from datetime import datetime
 from typing import Callable
@@ -127,19 +128,19 @@ def _build_all_flowables(resume_data: ResumeData) -> list:
 def _build_contact_header(contact: ContactInfo) -> list:
     flowables = []
 
-    flowables.append(Paragraph(contact.name, STYLE_NAME))
+    flowables.append(Paragraph(html.escape(contact.name), STYLE_NAME))
 
-    contact_parts = [contact.email]
+    contact_parts = [html.escape(contact.email)]
     if contact.phone:
-        contact_parts.append(contact.phone)
+        contact_parts.append(html.escape(contact.phone))
     if contact.linkedin:
-        contact_parts.append(contact.linkedin)
+        contact_parts.append(html.escape(contact.linkedin))
     if contact.github:
-        contact_parts.append(contact.github)
+        contact_parts.append(html.escape(contact.github))
     if contact.leetcode:
-        contact_parts.append(contact.leetcode)
+        contact_parts.append(html.escape(contact.leetcode))
     if contact.location:
-        contact_parts.append(contact.location)
+        contact_parts.append(html.escape(contact.location))
 
     contact_line = CONTACT_SEPARATOR.join(contact_parts)
     flowables.append(Paragraph(contact_line, STYLE_CONTACT))
@@ -188,7 +189,7 @@ def _build_two_column_row(
 def _build_summary_section(summary: str) -> list:
     flowables = []
     flowables.extend(_build_section_header("Summary"))
-    flowables.append(Paragraph(summary, STYLE_SUMMARY))
+    flowables.append(Paragraph(html.escape(summary), STYLE_SUMMARY))
     return flowables
 
 
@@ -197,8 +198,10 @@ def _build_skills_section(skills: list[SkillCategory]) -> list:
     flowables.extend(_build_section_header("Skills"))
 
     for skill_category in skills:
-        items_text = ", ".join(skill_category.items)
-        line = f"<b>{skill_category.category}:</b> {items_text}"
+        category = html.escape(skill_category.category)
+        items = [html.escape(item) for item in skill_category.items]
+        items_text = ", ".join(items)
+        line = f"<b>{category}:</b> {items_text}"
         flowables.append(Paragraph(line, STYLE_SKILLS))
 
     return flowables
@@ -221,8 +224,14 @@ def _build_experience_section(experiences: list[Experience]) -> list:
 def _build_single_experience(exp: Experience) -> list:
     flowables = []
 
-    date_range = f"{exp.start_date} {EN_DASH} {exp.end_date}"
-    role_text = f"<b>{exp.company}</b> {EM_DASH} {exp.role}"
+    start_date = html.escape(exp.start_date)
+    end_date = html.escape(exp.end_date)
+    company = html.escape(exp.company)
+    role = html.escape(exp.role)
+    location = html.escape(exp.location)
+
+    date_range = f"{start_date} {EN_DASH} {end_date}"
+    role_text = f"<b>{company}</b> {EM_DASH} {role}"
 
     row = _build_two_column_row(
         role_text, STYLE_ROLE_LEFT,
@@ -231,13 +240,13 @@ def _build_single_experience(exp: Experience) -> list:
     flowables.append(row)
 
     location_row = _build_two_column_row(
-        f"<i>{exp.location}</i>", STYLE_LOCATION_LEFT,
+        f"<i>{location}</i>", STYLE_LOCATION_LEFT,
         "", STYLE_LOCATION_LEFT,
     )
     flowables.append(location_row)
 
     for bullet in exp.bullets:
-        bullet_text = f"{BULLET_CHAR} {bullet}"
+        bullet_text = f"{BULLET_CHAR} {html.escape(bullet)}"
         flowables.append(Paragraph(bullet_text, STYLE_BULLET))
 
     return flowables
@@ -250,8 +259,13 @@ def _build_education_section(education: list[Education]) -> list:
 def _build_single_education(edu: Education) -> list:
     flowables = []
 
-    date_range = f"{edu.start_date} {EN_DASH} {edu.end_date}"
-    degree_text = f"<b>{edu.university}</b> {EM_DASH} {edu.degree}"
+    start_date = html.escape(edu.start_date)
+    end_date = html.escape(edu.end_date)
+    university = html.escape(edu.university)
+    degree = html.escape(edu.degree)
+
+    date_range = f"{start_date} {EN_DASH} {end_date}"
+    degree_text = f"<b>{university}</b> {EM_DASH} {degree}"
 
     row = _build_two_column_row(
         degree_text, STYLE_ROLE_LEFT,
@@ -260,7 +274,7 @@ def _build_single_education(edu: Education) -> list:
     flowables.append(row)
 
     for detail in edu.details:
-        detail_text = f"{BULLET_CHAR} {detail}"
+        detail_text = f"{BULLET_CHAR} {html.escape(detail)}"
         flowables.append(Paragraph(detail_text, STYLE_BULLET))
 
     return flowables
@@ -273,20 +287,24 @@ def _build_projects_section(projects: list[Project]) -> list:
 def _build_single_project(proj: Project) -> list:
     flowables = []
 
-    name_text = f"<b>{proj.name}</b>"
-    if proj.link:
-        name_text = f"<b>{proj.name}</b> | {proj.link}"
+    name = html.escape(proj.name)
+    link = html.escape(proj.link) if proj.link else None
+
+    name_text = f"<b>{name}</b>"
+    if link:
+        name_text = f"<b>{name}</b> | {link}"
     flowables.append(Paragraph(name_text, STYLE_PROJECT_NAME))
 
     if proj.description:
-        flowables.append(Paragraph(proj.description, STYLE_PROJECT_DETAIL))
+        flowables.append(Paragraph(html.escape(proj.description), STYLE_PROJECT_DETAIL))
 
     for bullet in proj.bullets:
-        bullet_text = f"{BULLET_CHAR} {bullet}"
+        bullet_text = f"{BULLET_CHAR} {html.escape(bullet)}"
         flowables.append(Paragraph(bullet_text, STYLE_BULLET))
 
     if proj.tech_stack:
-        tech_text = f"<b>Tech:</b> {', '.join(proj.tech_stack)}"
+        tech_stack = [html.escape(t) for t in proj.tech_stack]
+        tech_text = f"<b>Tech:</b> {', '.join(tech_stack)}"
         flowables.append(Paragraph(tech_text, STYLE_PROJECT_DETAIL))
 
     return flowables
