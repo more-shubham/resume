@@ -13,7 +13,6 @@ from reportlab.platypus import (
     Paragraph,
     Spacer,
     Table,
-    TableStyle,
 )
 
 from src.core.styles import (
@@ -40,6 +39,7 @@ from src.core.styles import (
     STYLE_SECTION_HEADER,
     STYLE_SKILLS,
     STYLE_SUMMARY,
+    TABLE_STYLE_DEFAULT,
 )
 from src.models.resume_data import (
     ContactInfo,
@@ -180,13 +180,7 @@ def _build_two_column_row(
         [[left_paragraph, right_paragraph]],
         colWidths=[left_column_width, right_column_width],
     )
-    table.setStyle(TableStyle([
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 0),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-        ("TOPPADDING", (0, 0), (-1, -1), 0),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
-    ]))
+    table.setStyle(TABLE_STYLE_DEFAULT)
 
     return table
 

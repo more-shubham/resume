@@ -1,6 +1,7 @@
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+from reportlab.platypus import TableStyle
 
 FONT_NAME = "Helvetica"
 FONT_NAME_BOLD = "Helvetica-Bold"
@@ -120,6 +121,14 @@ STYLE_SUMMARY = ParagraphStyle(
     spaceAfter=0,
     leading=BULLET_FONT_SIZE + 2,
 )
+
+TABLE_STYLE_DEFAULT = TableStyle([
+    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+    ("TOPPADDING", (0, 0), (-1, -1), 0),
+    ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+])
 
 STYLE_PROJECT_NAME = ParagraphStyle(
     name="ProjectName",
