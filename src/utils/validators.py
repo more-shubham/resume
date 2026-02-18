@@ -1,9 +1,19 @@
 from __future__ import annotations
 
-VALID_MONTH_ABBREVIATIONS = [
-    "jan", "feb", "mar", "apr", "may", "jun",
-    "jul", "aug", "sep", "oct", "nov", "dec",
-]
+VALID_MONTH_NAMES = {
+    "jan", "january",
+    "feb", "february",
+    "mar", "march",
+    "apr", "april",
+    "may",
+    "jun", "june",
+    "jul", "july",
+    "aug", "august",
+    "sep", "sept", "september",
+    "oct", "october",
+    "nov", "november",
+    "dec", "december",
+}
 
 
 class ResumeValidationError(Exception):
@@ -72,7 +82,7 @@ def _is_valid_date(value: str) -> bool:
     month_part = parts[0]
     year_part = parts[1]
 
-    if month_part not in VALID_MONTH_ABBREVIATIONS:
+    if month_part not in VALID_MONTH_NAMES:
         return False
 
     return year_part.isdigit() and len(year_part) == 4
