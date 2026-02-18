@@ -86,9 +86,8 @@ def _build_skills(skills_list: list[dict]) -> list[SkillCategory]:
 
 
 def _build_experience(experience_list: list[dict]) -> list[Experience]:
-    result = []
-    for entry in experience_list:
-        exp = Experience(
+    return [
+        Experience(
             company=entry["company"],
             role=entry["role"],
             location=entry["location"],
@@ -96,8 +95,8 @@ def _build_experience(experience_list: list[dict]) -> list[Experience]:
             end_date=str(entry["end_date"]),
             bullets=entry.get("bullets", []),
         )
-        result.append(exp)
-    return result
+        for entry in experience_list
+    ]
 
 
 def _build_education(education_list: list[dict]) -> list[Education]:
