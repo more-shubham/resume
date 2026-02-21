@@ -75,14 +75,13 @@ def _build_contact(contact_dict: dict) -> ContactInfo:
 
 
 def _build_skills(skills_list: list[dict]) -> list[SkillCategory]:
-    result = []
-    for entry in skills_list:
-        skill = SkillCategory(
+    return [
+        SkillCategory(
             category=entry["category"],
             items=entry.get("items", []),
         )
-        result.append(skill)
-    return result
+        for entry in skills_list
+    ]
 
 
 def _build_experience(experience_list: list[dict]) -> list[Experience]:
